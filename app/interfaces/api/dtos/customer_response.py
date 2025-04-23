@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class CustomerResponse(BaseModel):
+class CreateCustomerDTO(BaseModel):
     id: int
     name: str
     email: str
@@ -8,4 +8,4 @@ class CustomerResponse(BaseModel):
     tax_id: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
