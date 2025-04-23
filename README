@@ -1,0 +1,75 @@
+
+# 🧾 Billing System
+
+A robust billing system built using modern Python technologies with a clean architecture approach (DDD + CQRS). This project is designed to be modular, scalable, and production-ready.
+
+---
+
+## 📦 Tech Stack
+
+- **FastAPI** – Backend Framework
+- **PostgreSQL** – Relational Database
+- **Docker + Docker Compose** – Containerization
+- **Pydantic** – Data validation and settings management
+- **SQLAlchemy + Alembic** – ORM and migrations
+- **Celery + RabbitMQ** – Background task processing
+- **SendGrid** – Email service integration
+- **Multithreading** – Non-blocking operations
+- **CQRS + DDD** – Code architecture and separation of concerns
+- **JWT** – Authentication and Authorization
+- **Plotly** – Interactive dashboards
+- **GitLab CI/CD** – Continuous Integration and Deployment
+- **pytest + httpx** – Testing suite
+
+---
+
+## 🧱 Project Structure (based on DDD + CQRS)
+
+billing_system/
+├── app/
+│   ├── __init__.py
+│   ├── main.py               # Punto de entrada FastAPI
+│   ├── core/                 # Configuraciones generales (db, seguridad, etc.)
+│   ├── api/                  # Rutas y controladores
+│   ├── domain/               # Entidades y lógica del dominio
+│   ├── infrastructure/       # DB, servicios externos (SendGrid, Celery)
+│   ├── application/          # Casos de uso
+│   └── shared/               # Utilidades compartidas
+├── tests/
+├── alembic/                  # Migraciones
+├── docker-compose.yml
+├── Dockerfile
+├── .env
+└── requirements.txt
+
+
+## 🚀 Getting Started
+
+### 🔧 Prerequisites
+- Python 3.10+
+- Docker & Docker Compose
+
+### 🛠 Setup
+
+```bash
+# Clone the repo
+git clone nothing yet lol
+cd billing_system
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Start FastAPI server
+uvicorn app.main:app --reload
+
+# Docker Compose
+docker-compose up --build
+or
+docker-compose up if you have not made any changes to your Dockerfile
+
+http://localhost:8000/
+```
