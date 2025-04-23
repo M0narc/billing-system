@@ -53,7 +53,7 @@ billing_system/
 
 ```bash
 # Clone the repo
-git clone nothing yet lol
+git clone git@github.com:M0narc/billing-system.git
 cd billing_system
 
 # Create virtual environment
@@ -67,9 +67,25 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 
 # Docker Compose
-docker-compose up --build
+sudo docker-compose up --build
 or
-docker-compose up if you have not made any changes to your Dockerfile
+sudo docker-compose up  # if you have not made any changes to your Dockerfile
 
-http://localhost:8000/
+# Run this in order to initiate a migration
+sudo docker-compose exec web alembic revision --autogenerate -m "create customer model"
+
+# And this in order to actualy create the table
+sudo docker-compose exec web alembic upgrade head
+
+# Confirm it worked checking the DB
+sudo docker-compose exec db psql -U billing_user -d billing_db
+
+# then in postgres run
+\d customers;
+
 ```
+# Pushing a branch
+when creating a branch please leave evidence that it worked. like a screenshot and steps to reproduce
+
+## URL
+http://localhost:8000/
